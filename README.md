@@ -39,7 +39,7 @@
 
 Для генерации пароля:
 ```bash
-poetry run python -m password_generation.password_generator
+poetry run python -m password_generation.main
 ```
 
 Доступные опции(в разработке):

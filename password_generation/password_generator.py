@@ -1,11 +1,9 @@
 import secrets
 import string
-from datetime import timedelta
 from math import log2
-from operator import length_hint
 from random import shuffle
 
-from settings import *
+from password_generation.settings import *
 
 
 class PasswordGenerator:
