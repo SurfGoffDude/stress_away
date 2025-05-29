@@ -35,6 +35,11 @@ def get_password() -> str:
             return password
 
 
+def create_progressbar(progress: int) -> str:
+    bar = '[' + '#' * progress + '-' * (100 - progress) + '] '
+    return bar
+
+
 class PasswordGeneratorService:
     def __init__(self):
         self.generator = PasswordGenerator()
@@ -108,9 +113,11 @@ class PasswordSecurityService:
                 break
 
     def get_security_info(self) -> None:
-        print(f'\nНадежность пароля: {self.generator.strength}%')
-        print(f'Энтропия пароля: {self.generator.entropy} бит')
-        print(f'Время до взлома пароля: {self.generator.time_until_crack}')
+        strength = self.generator.strength
+        print(f'\nНадежность пароля: {strength}%')
+        print(create_progressbar(int(strength)))
+        print(f'\nЭнтропия пароля: {self.generator.entropy} бит')
+        print(f'\nВремя до взлома пароля: {self.generator.time_until_crack}')
 
 
 class Service:
